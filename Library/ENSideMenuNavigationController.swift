@@ -11,9 +11,7 @@ import UIKit
 public class ENSideMenuNavigationController: UINavigationController, ENSideMenuProtocol {
     
     public var sideMenu : ENSideMenu?
-    public var sideMenuAnimationType : ENSideMenuAnimation = .Default
-    public var contentViewController: UIViewController? = nil
-    
+    public var sideMenuAnimationType : ENSideMenuAnimation = .Default    
     
     // MARK: - Life cycle
     public override func viewDidLoad() {
@@ -42,7 +40,6 @@ public class ENSideMenuNavigationController: UINavigationController, ENSideMenuP
     
     // MARK: - Navigation
     public func setContentViewController(contentViewController: UIViewController) {
-    	self.contentViewController = contentViewController
         self.sideMenu?.hideSideMenu()
         switch sideMenuAnimationType {
         case .None:
@@ -55,8 +52,8 @@ public class ENSideMenuNavigationController: UINavigationController, ENSideMenuP
         }   
     }
     
-    public getContentViewController() -> UIViewController {
-    	return self.contentViewController
+    public func getContentViewController() -> UIViewController {
+    	return self.viewControllers.first
     }
 
 }
