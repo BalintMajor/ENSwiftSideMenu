@@ -52,7 +52,7 @@ public class ENSideMenuNavigationController: UINavigationController, ENSideMenuP
         }   
     }
     
-    public func getContentViewController() -> UIViewController {
+    public func getContentViewController() -> UIViewController? {
     	return self.viewControllers.first
     }
 
