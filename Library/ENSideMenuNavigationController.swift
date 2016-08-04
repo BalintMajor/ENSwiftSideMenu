@@ -12,6 +12,7 @@ public class ENSideMenuNavigationController: UINavigationController, ENSideMenuP
     
     public var sideMenu : ENSideMenu?
     public var sideMenuAnimationType : ENSideMenuAnimation = .Default
+    public var contentViewController: UIViewController? = nil
     
     
     // MARK: - Life cycle
@@ -41,6 +42,7 @@ public class ENSideMenuNavigationController: UINavigationController, ENSideMenuP
     
     // MARK: - Navigation
     public func setContentViewController(contentViewController: UIViewController) {
+    	self.contentViewController = contentViewController
         self.sideMenu?.hideSideMenu()
         switch sideMenuAnimationType {
         case .None:
@@ -50,8 +52,11 @@ public class ENSideMenuNavigationController: UINavigationController, ENSideMenuP
             contentViewController.navigationItem.hidesBackButton = true
             self.setViewControllers([contentViewController], animated: true)
             break
-        }
-        
+        }   
+    }
+    
+    public getContentViewController() -> UIViewController {
+    	return self.contentViewController
     }
 
 }
